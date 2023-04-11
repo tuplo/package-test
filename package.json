@@ -1,0 +1,27 @@
+{
+	"name": "@tuplo/package-test",
+	"description": "Tests for importing packages using different modules strategies (ESM, CJS, TS, TS:node16)",
+	"repository": "git@github.com:tuplo/package-test.git",
+	"author": "Rui Costa",
+	"license": "MIT",
+	"scripts": {
+		"lint:ts": "tsc --noEmit --project tsconfig.json",
+		"lint:ts:node16": "tsc --noEmit --project tsconfig.node16.json",
+		"lint": "yarn lint:ts && yarn lint:ts:node16",
+		"test:cjs": "node src/index.cjs",
+		"test:mjs": "node src/index.mjs",
+		"test:ts:ts-node": "ts-node src/index.ts",
+		"test:ts:tsx": "tsx --tsconfig tsconfig.json src/index.ts",
+		"test:ts:node16": "tsx --tsconfig tsconfig.node16.json src/index.ts",
+		"test": "yarn test:cjs && yarn test:mjs && yarn test:ts:tsx && yarn test:ts:ts-node && yarn test:ts:node16"
+	},
+	"devDependencies": {
+		"prettier": "2.8.7",
+		"ts-node": "10.9.1",
+		"tsx": "3.12.6",
+		"typescript": "5.0.4"
+	},
+	"dependencies": {
+		"@tuplo/dynoexpr": "3.5.0"
+	}
+}
