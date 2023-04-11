@@ -47,4 +47,12 @@ ts:nodenext
 - tests a esm module (following instructions from docs)
 - tests a ts module (with ts-jest)
 
+## Usage
+
+- Install package `yarn install @my/package-to-test`
+- Edit source files with imports/requires to package and a dummy call to it:
+	- `src/cjs/index.cjs`
+	- `src/esm/index.mjs`
+	- `src/ts/index.ts`
+- Run tests suite `yarn start`
 
