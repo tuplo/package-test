@@ -5,23 +5,32 @@
 	"author": "Rui Costa",
 	"license": "MIT",
 	"scripts": {
-		"lint:ts": "tsc --noEmit --project tsconfig.json",
+		"compile:cjs": "node src/cjs/index.cjs",
+		"compile:esm": "node src/esm/index.mjs",
+		"compile:ts:node16": "tsx --tsconfig tsconfig.node16.json src/ts/index.ts",
+		"compile:ts:ts-node": "ts-node src/ts/index.ts",
+		"compile:ts:tsx": "tsx --tsconfig tsconfig.json src/ts/index.ts",
+		"compile": "yarn compile:cjs && yarn compile:esm && yarn compile:ts:tsx && yarn compile:ts:ts-node && yarn compile:ts:node16",
+		"jest:cjs": "jest src/cjs/index.test.js",
+		"jest:esm": "NODE_OPTIONS=--experimental-vm-modules jest --config src/esm/jest.config.js src/esm/index.test.mjs",
+		"jest:ts": "jest --config src/ts/jest.config.js src/ts/index.test.ts",
+		"jest": "yarn jest:esm && yarn jest:ts",
 		"lint:ts:node16": "tsc --noEmit --project tsconfig.node16.json",
+		"lint:ts": "tsc --noEmit --project tsconfig.json",
 		"lint": "yarn lint:ts && yarn lint:ts:node16",
-		"test:cjs": "node src/index.cjs",
-		"test:mjs": "node src/index.mjs",
-		"test:ts:ts-node": "ts-node src/index.ts",
-		"test:ts:tsx": "tsx --tsconfig tsconfig.json src/index.ts",
-		"test:ts:node16": "tsx --tsconfig tsconfig.node16.json src/index.ts",
-		"test": "yarn test:cjs && yarn test:mjs && yarn test:ts:tsx && yarn test:ts:ts-node && yarn test:ts:node16"
+		"start": "yarn compile && yarn jest && yarn lint"
 	},
 	"devDependencies": {
+		"@types/jest": "29.5.0",
+		"@types/node": "18.15.11",
+		"jest": "29.5.0",
 		"prettier": "2.8.7",
+		"ts-jest": "29.1.0",
 		"ts-node": "10.9.1",
 		"tsx": "3.12.6",
 		"typescript": "5.0.4"
 	},
 	"dependencies": {
-		"@tuplo/dynoexpr": "3.5.0"
+		"@tuplo/dynoexpr": "3.5.1"
 	}
 }
