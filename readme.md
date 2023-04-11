@@ -10,7 +10,7 @@ or by tasks
 ```
 yarn compile
 yarn jest
-yarn lint
+yarn ts
 ```
 
 or by individual strategies:
@@ -18,7 +18,7 @@ or by individual strategies:
 ```bash
 compile:cjs
 compile:esm
-compile:ts:node16
+compile:ts:nodenext
 compile:ts:ts-node
 compile:ts:tsx
 
@@ -26,8 +26,8 @@ jest:cjs
 jest:esm
 jest:ts
 
-lint:ts:node16
-lint:ts
+ts:commonjs
+ts:nodenext
 
 ```
 
@@ -44,7 +44,7 @@ lint:ts
 ### Jest
 
 - tests a commonjs module (native behavior)
-- tests a esm module (following instructions)
+- tests a esm module (following instructions from docs)
 - tests a ts module (with ts-jest)
 
 

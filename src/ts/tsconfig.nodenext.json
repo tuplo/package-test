@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "declaration": true,
+    "esModuleInterop": true,
+    "lib": ["DOM", "ES2015"],
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "removeComments": true,
+    "strict": true,
+    "target": "es6",
+  },
+  "include": ["**/*"],
+}

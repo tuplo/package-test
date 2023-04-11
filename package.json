@@ -1,24 +1,24 @@
 {
 	"name": "@tuplo/package-test",
-	"description": "Tests for importing packages using different modules strategies (ESM, CJS, TS, TS:node16)",
+	"description": "Tests for importing packages using different modules strategies (ESM, CJS, TS, TS:nodenext)",
 	"repository": "git@github.com:tuplo/package-test.git",
 	"author": "Rui Costa",
 	"license": "MIT",
 	"scripts": {
 		"compile:cjs": "node src/cjs/index.cjs",
 		"compile:esm": "node src/esm/index.mjs",
-		"compile:ts:node16": "tsx --tsconfig src/ts/tsconfig.node16.json src/ts/index.ts",
+		"compile:ts:nodenext": "tsx --tsconfig src/ts/tsconfig.nodenext.json src/ts/index.ts",
 		"compile:ts:ts-node": "ts-node src/ts/index.ts",
-		"compile:ts:tsx": "tsx --tsconfig src/ts/tsconfig.json src/ts/index.ts",
-		"compile": "yarn compile:cjs && yarn compile:esm && yarn compile:ts:tsx && yarn compile:ts:ts-node && yarn compile:ts:node16",
+		"compile:ts:tsx": "tsx --tsconfig src/ts/tsconfig.commonjs.json src/ts/index.ts",
+		"compile": "yarn compile:cjs && yarn compile:esm && yarn compile:ts:tsx && yarn compile:ts:ts-node && yarn compile:ts:nodenext",
 		"jest:cjs": "jest src/cjs/index.test.js",
 		"jest:esm": "NODE_OPTIONS=--experimental-vm-modules jest --config src/esm/jest.config.js src/esm/index.test.mjs",
 		"jest:ts": "jest --config src/ts/jest.config.js src/ts/index.test.ts",
 		"jest": "yarn jest:esm && yarn jest:ts",
-		"lint:ts:node16": "tsc --noEmit --project src/ts/tsconfig.node16.json",
-		"lint:ts": "tsc --noEmit --project src/ts/tsconfig.json",
-		"lint": "yarn lint:ts && yarn lint:ts:node16",
-		"start": "yarn compile && yarn jest && yarn lint"
+		"start": "yarn compile && yarn jest && yarn ts",
+		"ts:commonjs": "tsc --noEmit --project src/ts/tsconfig.commonjs.json",
+		"ts:nodenext": "tsc --noEmit --project src/ts/tsconfig.nodenext.json",
+		"ts": "yarn ts:commonjs && yarn ts:nodenext"
 	},
 	"devDependencies": {
 		"@types/jest": "29.5.0",
