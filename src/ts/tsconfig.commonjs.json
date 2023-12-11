@@ -1,13 +1,13 @@
 {
-  "compilerOptions": {
-    "baseUrl": "./",
-    "declaration": true,
-    "esModuleInterop": true,
-    "lib": ["DOM", "ES2015"],
-    "module": "CommonJS",
-    "removeComments": true,
-    "strict": true,
-    "target": "es6",
-  },
-  "include": ["**/*"],
+	"compilerOptions": {
+		"baseUrl": "./",
+		"declaration": true,
+		"esModuleInterop": true,
+		"lib": ["DOM", "ES2015"],
+		"module": "CommonJS",
+		"removeComments": true,
+		"strict": true,
+		"target": "es6"
+	},
+	"include": ["**/*"]
 }
